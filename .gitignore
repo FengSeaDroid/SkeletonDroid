@@ -1,0 +1,7 @@
+*
+!*/
+!src/*.scala
+!.classpath
+!.gitignore
+!.project
+!build.sbt
