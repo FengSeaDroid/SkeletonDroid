@@ -1,5 +1,5 @@
-lazy val root = (project in file(".")).
-  settings(
-    name := "scalatron scaffold",
-    version := "0.1"
-  )
+name := "skeleton droid" 
+ 
+version := "0.0.1" 
+
+target  := file("../tmp")
