@@ -13,3 +13,11 @@ val botName = System.getProperty("user.dir").drop(System.getProperty("user.dir")
 
 //set packaging path to bots/username/ScalatronBot.jar
 artifactPath in Compile in packageBin <<=  baseDirectory { base => new File("../../bots/"+botName+"/ScalatronBot.jar") }
+
+//add build goal for start server in debugging mode
+val debugServer = taskKey[Unit]("start server in debug mode")
+
+debugServer := {
+	val log:String = Process("java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 -jar ../../bin/Scalatron.jar").!!
+	println(log)
+	} 
