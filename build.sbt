@@ -6,7 +6,7 @@ version := "0.0.1"
 //change default src path
 scalaSource in Compile:= baseDirectory.value / "src"
 
-//find the botname by looking at directory name
+//find the botname by looking at directory name //untested on linux
 val os = sys.props.get("os.name") getOrElse "?"
 val slash = if(os.toLowerCase.contains("windows")) '\\' else '/'
 val botName = System.getProperty("user.dir").drop(System.getProperty("user.dir").lastIndexOf(slash)+1)
@@ -18,6 +18,6 @@ artifactPath in Compile in packageBin <<=  baseDirectory { base => new File("../
 val debugServer = taskKey[Unit]("start server in debug mode")
 
 debugServer := {
-	val log:String = Process("java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 -jar ../../bin/Scalatron.jar").!!
+	def log : String = Process("java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 -jar ../../bin/Scalatron.jar").!!
 	println(log)
 	} 

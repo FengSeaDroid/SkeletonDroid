@@ -5,3 +5,5 @@
 !.gitignore
 !.project
 !build.sbt
+!config.txt
+
