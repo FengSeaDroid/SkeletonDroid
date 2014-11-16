@@ -3,6 +3,11 @@ name := "skeleton droid"
  
 version := "0.0.1" 
 
+//use this version of Scala for compilation
+scalaVersion := "2.9.2"
+//otherwise may throw exception (such as from String.split)
+//http://stackoverflow.com/questions/17267847/getting-scalatron-to-work-trouble-with-opcode
+
 //change default src path
 scalaSource in Compile:= baseDirectory.value / "src"
 
